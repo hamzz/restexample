@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
@@ -20,7 +21,7 @@ import static org.junit.Assert.assertNotNull;
 @SpringBootTest
 public class RestexampleApplicationTests {
 
-    @Mock
+	@Autowired
     private MemberService memberService;
 
 	private Member member;
@@ -37,12 +38,13 @@ public class RestexampleApplicationTests {
 	public void testFind(){
 		List<Member> memberList = memberService.getMembers();
         assertNotNull(memberList);
+        assertEquals(1,memberList.size());
 	}
 
-//    @Test
-//    public void testFindOne(){
-//        Member hamzah = memberService.findMember();
-//        assertEquals(member.getName(),hamzah.getName());
-//    }
+    @Test
+    public void testFindOne(){
+        Member hamzah = memberService.findMember(member.getId());
+        assertEquals(member.getName(),hamzah.getName());
+    }
 
 }
