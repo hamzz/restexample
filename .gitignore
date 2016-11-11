@@ -1,0 +1,74 @@
+.gitmodules
+.DS_Store
+._*
+.cache
+Thumbs.db
+.settings
+.springBeans
+.gradle
+*.log
+*.backup
+.tmproj
+*.esproj
+gradle.properties
+
+buildSrc/build
+target/
+
+# Eclipse artifacts, including WTP generated manifests
+.classpath
+.project
+.project.settings
+
+# IDEA artifacts and output dirs
+*.iml
+*.ipr
+*.iws
+*.setting
+.idea
+.clover
+out
+test-output
+atlassian-ide-plugin.xml
+.gradletasknamecache
+build
+.nb-gradle
+rebel.xml
+rebel-remote.xml
+
+# npm
+**/node_modules
+bower_components
+
+# Komodo
+*.komodoproject
+.komodotools
+
+# grunt-html-validation
+validation-status.json
+validation-report.json
+
+# Ignore docs files
+_gh_pages
+_site
+.ruby-version
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.zip
+*.vi
+*~
+
+gradle/wrapper/
+gradlew.*
+
+# ignore generate model
+**/src/main/generated
+
+*.war
