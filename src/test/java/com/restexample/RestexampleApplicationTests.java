@@ -23,12 +23,11 @@ public class RestexampleApplicationTests {
     @Mock
     private MemberService memberService;
 
-	private Member member = new Member();
+	private Member member;
 
 	@Before
-	@Transactional
-	@Rollback
 	public void setup(){
+		member = new Member();
 		member.setName("Hamzah");
 		member = memberService.saveMember(member);
     }
@@ -38,7 +37,6 @@ public class RestexampleApplicationTests {
 	public void testFind(){
 		List<Member> memberList = memberService.getMembers();
         assertNotNull(memberList);
-        assertEquals(1,memberList.size());
 	}
 
 //    @Test
