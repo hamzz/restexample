@@ -15,9 +15,10 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = RestexampleApplication.class)
+@ContextConfiguration(classes = DatabaseTestConfig.class)
 @SpringBootTest
 public class RestexampleApplicationTests {
 
@@ -27,9 +28,11 @@ public class RestexampleApplicationTests {
 	private Member member;
 
 	@Before
+	@Rollback
 	public void setup(){
 		member = new Member();
 		member.setName("Hamzah");
+		member.setAge(20);
 		member = memberService.saveMember(member);
     }
 
@@ -38,7 +41,7 @@ public class RestexampleApplicationTests {
 	public void testFind(){
 		List<Member> memberList = memberService.getMembers();
         assertNotNull(memberList);
-        assertEquals(1,memberList.size());
+		assertEquals(1,memberList.size());
 	}
 
     @Test
@@ -46,5 +49,14 @@ public class RestexampleApplicationTests {
         Member hamzah = memberService.findMember(member.getId());
         assertEquals(member.getName(),hamzah.getName());
     }
+
+    @Test
+	public void testAge(){
+		Member member = new Member();
+		member.setName("Adit");
+		member.setAge(27);
+		assertEquals(memberService.saveMember(member).getAge(),member.getAge());
+	}
+
 
 }
