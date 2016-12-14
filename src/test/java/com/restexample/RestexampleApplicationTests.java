@@ -36,14 +36,6 @@ public class RestexampleApplicationTests {
 		member = memberService.saveMember(member);
     }
 
-	@Test
-	@Transactional
-	public void testFind(){
-		List<Member> memberList = memberService.getMembers();
-        assertNotNull(memberList);
-		assertEquals(1,memberList.size());
-	}
-
     @Test
     public void testFindOne(){
         Member hamzah = memberService.findMember(member.getId());
