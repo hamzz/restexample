@@ -58,5 +58,10 @@ public class RestexampleApplicationTests {
 		assertEquals(memberService.saveMember(member).getAge(),member.getAge());
 	}
 
-
+	@Test
+	public void testExist(){
+		Member member = new Member();
+		member.setName("Adit");
+		member.setAge(27);
+	}
 }

@@ -23,7 +23,7 @@ public class MemberService {
     }
 
     public Member saveMember(Member member){
-        Member member1 = findMember(member.getId());
+        Member member1 = memberRepository.findByName(member.getName());
         if (member1 != null){
             throw new MemberExistsException("Data Sudah Ada...!");
         }
