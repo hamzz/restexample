@@ -2,5 +2,4 @@ language: java
 jdk:
   - oraclejdk8
 script:
-  - mvn clean verify sonar:sonar
   - mvn test
